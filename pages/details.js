@@ -1,4 +1,4 @@
-const data = [
+const details = [
   {
     id: "waterboarding-1",
     title: "OPEN",
@@ -75,4 +75,4 @@ const data = [
   },
 ];
 
-export default data;
+export default details;
