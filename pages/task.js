@@ -32,7 +32,6 @@ function Task({ task, projectId, taskSelect }) {
       <h4 className="font-medium text-xs" style={{ color: task.title.color }}>
         {task.title.text}
       </h4>
-      <p className="text-[#475467] font-medium">{task.description}</p>
       <div className="flex justify-end items-start">
         {task.people?.slice(0, 4).map((person, index) => (
           <img
@@ -52,6 +51,7 @@ function Task({ task, projectId, taskSelect }) {
           </div>
         )}
       </div>
+      <p className="text-[#475467] font-medium">{task.description}</p>
       <p className="text-[#98A2B3]">{task.date}</p>
       <div className="flex gap-2">
         <p className="text-[#98A2B3] flex items-center gap-2">

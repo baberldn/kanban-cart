@@ -33,14 +33,18 @@ function TaskTabs({ task }) {
           <div className="flex justify-between min-h-[100px] sm:min-h-[128px]">
             <div className="flex flex-col gap-1 sm:gap-2">
               <div className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs">
-                <img src="images/Task Icon.png"
+                <img
+                  src="images/Task Icon.png"
+                  alt=""
                   className="w-4 h-4 sm:w-5 sm:h-5"
                 />
                 <span className="font-medium text-xs sm:text-sm">
                   Task Content
                 </span>
                 <div className="flex gap-1 items-center">
-                  <img  src="images/Link 1.png"
+                  <img
+                    src="images/Link 1.png"
+                    alt=""
                     className="w-3 h-3 sm:w-auto sm:h-auto"
                   />
                   <span className="text-gray-300">#{task.id}</span>
@@ -48,14 +52,17 @@ function TaskTabs({ task }) {
               </div>
               <div className="flex gap-1 sm:gap-2 text-[10px] sm:text-xs">
                 <div className="flex gap-1 items-center">
-                  <img  src="images/Calendar.png"
+                  <img
+                    src="images/Calendar.png"
+                    alt=""
                     className="w-3 h-3 sm:w-auto sm:h-auto"
                   />
                   <span className="text-[#98A2B3]">{task.date}</span>
                 </div>
                 <div className="flex gap-1 items-center">
-                  <img  src="images/Rectangle 41978.png"
-
+                  <img
+                    src="images/Rectangle 41978.png"
+                    alt=""
                     className="w-3 h-3 sm:w-auto sm:h-auto"
                   />
                   <span className="font-medium text-[#98A2B3]">
@@ -82,10 +89,10 @@ function TaskTabs({ task }) {
             <div>
               <img
                 src="images/p1.png"
+                alt=""
                 className="w-[28px] h-[28px] sm:w-[35px] sm:h-[35px] rounded-full border border-white"
               />
-            </div>    
-            {/* buraya dön */}
+            </div>
           </div>
         )}
 
@@ -107,11 +114,14 @@ function TaskTabs({ task }) {
 
 function ActivityItem({ id, user, action, target, time, projectLink }) {
   return (
-    <div key={id}
+    <div
+      key={id}
       className="flex items-start gap-2 sm:gap-3 p-1.5 sm:p-2 bg-[#F3F6FD]"
     >
       <div className="relative">
-        <img src={user.photo}
+        <img
+          src={user.photo}
+          alt=""
           className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-gray-200"
         />
         <div className="absolute bottom-0 right-0 w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full border-2 border-white"></div>
@@ -125,7 +135,7 @@ function ActivityItem({ id, user, action, target, time, projectLink }) {
           )}
           {projectLink && (
             <a
-              href=""
+              href="#"
               className="font-medium text-[#6941C6] hover:text-[#5e399E]"
             >
               {projectLink}
@@ -143,7 +153,7 @@ function Activities({ task }) {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    const activities = randomActivity();
+    const activities = randoActivity();
     setActivities(activities);
   }, []);
 
@@ -193,7 +203,7 @@ function Activities({ task }) {
     activityRef.current.scrollTop = scrollTop - walk;
   }
 
-  function randomTime() {
+  function randoTime() {
     const times = [
       "2 mins ago",
       "5 mins ago",
@@ -205,7 +215,7 @@ function Activities({ task }) {
     return times[Math.floor(Math.random() * times.length)];
   }
 
-  function randomActivity() {
+  function randoActivity() {
     const actions = [
       { action: "added a comment to", needsTarget: false },
       { action: "created a subtask in", needsTarget: false },
@@ -224,7 +234,7 @@ function Activities({ task }) {
           id: `activity-${crypto.randomUUID()}`,
           user: person,
           action: randoAction.action,
-          time: randomTime(),
+          time: randoTime(),
           projectLink: "Frontend Case",
         };
 

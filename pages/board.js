@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Task from "./task";
 import { useDroppable } from "@dnd-kit/core";
-
+import Task from "./task";
 
 
 function Board({ project, taskSelect, handleAddTask }) {
-  const [addings, setAdding] = useState(false);
+  const [adding, setAdding] = useState(false);
   const [newTaskTitle, setNewTaskTitle] = useState("");
 
   const { setNodeRef, isOver } = useDroppable({
@@ -44,8 +43,8 @@ function Board({ project, taskSelect, handleAddTask }) {
         <input
           value={newTaskTitle}
           onChange={(e) => setNewTaskTitle(e.target.value)}
-          placeholder="Task title"
-          className="w-full p-1.5 sm:p-2 text-[9px] sm:text-xs border border-[#EAECF0] rounded-md"
+          placeholder="Enter Task title"
+          className="w-full p-1.5 sm:p-2 text-[10px] sm:text-xs border border-[#EAECF0] rounded-md"
           autoFocus
           onTouchStart={(e) => e.stopPropagation()}
           required
@@ -96,10 +95,14 @@ function Board({ project, taskSelect, handleAddTask }) {
           </div>
         </div>
         <div className="flex gap-2 sm:gap-4">
-          <img src="images/Plus 4.png"
+          <img
+            src="images/Plus 4.png"
+            alt=""
             className="w-3 h-3 sm:w-auto sm:h-auto"
           />
-          <img src="images/More Circle.png"
+          <img
+            src="images/More Circle.png"
+            alt=""
             className="w-3 h-3 sm:w-auto sm:h-auto"
           />
         </div>
@@ -115,7 +118,7 @@ function Board({ project, taskSelect, handleAddTask }) {
                 projectId={project.id}
               />
             ))}
-            {addings ? (
+            {adding ? (
               <TaskForm />
             ) : (
               <li
@@ -128,17 +131,19 @@ function Board({ project, taskSelect, handleAddTask }) {
           </>
         ) : (
           <>
-            {addings ? (
+            {adding ? (
               <TaskForm />
             ) : (
               <div
                 className="flex flex-col justify-center items-center group cursor-pointer text-[#98A2B3] text-lg sm:text-xl font-medium h-full"
                 onClick={handleAddingTask}
               >
-                <img src="images/Layer 1.png"
+                <img
+                  src="images/Layer 1.png"
+                  alt=""
                   className="w-20 h-20 sm:w-auto sm:h-auto"
                 />
-                <p className="opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                <p className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                   + New Task
                 </p>
               </div>
