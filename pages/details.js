@@ -1,7 +1,6 @@
-// pages/details.js
-import React from 'react';
-import data from './data'; // data'nın doğru yolu
 
+import React from 'react';
+import data from './data'; 
 const Details = () => {
   return (
     <div>
