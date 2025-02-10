@@ -7,10 +7,10 @@ function Board({ project, taskSelect, handleAddTask }) {
   const [newTaskTitle, setNewTaskTitle] = useState("");
 
   const { setNodeRef, isOver } = useDroppable({
-    id: project?.id, // project nesnesinin tanımlı olup olmadığını kontrol et
+    id: project?.id,
     data: {
       type: "BOARD",
-      projectId: project?.id, // project nesnesinin tanımlı olup olmadığını kontrol et
+      projectId: project?.id, 
     },
   });
 

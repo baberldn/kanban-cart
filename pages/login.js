@@ -1,8 +1,9 @@
 "use client";
+
 import React from "react";
 import Sidebar from "./siderbar";
 import Boards from "./boards";
-
+import "./App.css";
 
 const Home = () => {
   return (
