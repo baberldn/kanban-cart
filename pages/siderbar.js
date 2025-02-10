@@ -133,7 +133,7 @@ const Sidebar = () => {
         </div>
 
         <div className="w-[282px] p-6 flex flex-col justify-between border-r border-[#dee2e9] bg-white min-h-dvh">
-          <h2 className="text-xl font-bold mb-[-330px]">Projeler</h2>
+          <h2 className="text-xl font-bold mb-[-300px]">Projeler</h2>
           <ul className="flex flex-col gap-1">
             {projects.map((thing) => (
               <React.Fragment key={thing.id}>
@@ -188,7 +188,7 @@ const Sidebar = () => {
             </li>
           </ul>
 
-          <div className="flex justify-between text-sm">
+          <div className="flex justify-between text-sm mb-[200px]">
             <div>
               <p className="font-bold">Beril Badan</p>
               <p>baberldn@gmail.com</p>

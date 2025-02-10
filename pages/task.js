@@ -3,6 +3,10 @@ import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 
 function Task({ task, projectId, taskSelect }) {
+  if (!task) {
+    return <div>Loading...</div>; 
+  }
+
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
       id: task.id,

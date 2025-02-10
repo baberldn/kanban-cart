@@ -149,6 +149,7 @@ function ActivityItem({ id, user, action, target, time, projectLink }) {
     </div>
   );
 }
+
 function Activities({ task }) {
   const [activities, setActivities] = useState([]);
 
@@ -305,6 +306,11 @@ function TaskDetails({ task, taskDeselect, handleDelete }) {
     setThingy((prev) => !prev);
   }
 
+  
+  if (!task) {
+    return <div>Loading...</div>; 
+  }
+
   return (
     <div className="fixed inset-0 flex items-start sm:items-center justify-center bg-black bg-opacity-75 z-50 p-2 sm:p-0 overflow-y-auto">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-[95%] sm:max-w-[85%] md:max-w-[75%] gap-2 sm:gap-4 my-4 sm:my-8">
@@ -313,92 +319,60 @@ function TaskDetails({ task, taskDeselect, handleDelete }) {
             <div className="flex items-center gap-1 sm:gap-2 md:gap-4 shrink-0">
               <button className="p-1 sm:p-2">
                 <span className="inline-block w-4 h-4">
-                  <img  src="images/Icon-1.png"
-  
-                    className="w-full h-full object-contain"
-                  />
+                  <img src="images/Icon-1.png" className="w-full h-full object-contain" />
                 </span>
               </button>
               <button className="p-1 sm:p-2">
                 <span className="inline-block w-4 h-4">
-                  <img src="images/Icon.png"
-                    className="w-full h-full object-contain"
-                  />
+                  <img src="images/Icon.png" className="w-full h-full object-contain" />
                 </span>
               </button>
             </div>
             <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-              <img src="images/_Breadcrumb button base.png"
-                className="w-4 h-4 object-contain"
-              />
+              <img src="images/_Breadcrumb button base.png" className="w-4 h-4 object-contain" />
               <div className="flex flex-wrap items-center gap-2">
                 <div className="flex items-center gap-2">
-                  <img  src="images/Icon-2.png"
-                    className="w-3 h-3 sm:w-4 sm:h-4 object-contain"
-                  />
+                  <img src="images/Icon-2.png" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" />
                   <span>25 Proje</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <img src="images/Icon-2.png"
-                    className="w-3 h-3 sm:w-4 sm:h-4 object-contain"
-                  />
+                  <img src="images/Icon-2.png" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" />
                   <span>Projects</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <img src="images/Icon-2.png"
-                    className="w-3 h-3 sm:w-4 sm:h-4 object-contain"
-                  />
-                  <span className="text-blue-500 font-medium">
-                    Frontend Case
-                  </span>
+                  <img src="images/Icon-2.png" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" />
+                  <span className="text-blue-500 font-medium">Frontend Case</span>
                 </div>
-                <img  src="images/Icon-3.png"
-                  className="w-3 h-3 sm:w-4 sm:h-4 object-contain"
-                />
+                <img src="images/Icon-3.png" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" />
               </div>
             </div>
           </div>
           <div className="flex items-center gap-1 sm:gap-2 shrink-0">
-            <div
-              className="p-1 sm:p-2 relative cursor-pointer"
-              onClick={handleThingy}
-            >
+            <div className="p-1 sm:p-2 relative cursor-pointer" onClick={handleThingy}>
               <span className="inline-block w-4 h-4">
-                <img  src="images/Icon-4.png"
-                  className="w-full h-full object-contain"
-                />
+                <img src="images/Icon-4.png" className="w-full h-full object-contain" />
               </span>
               {thingy && (
                 <div className="absolute text-[10px] sm:text-xs top-4 right-4 min-w-20 bg-white border border-gray-300 rounded-md flex flex-col p-1 divide-y divide-gray-300">
-                  <button
-                    className="p-1 hover:bg-gray-100 font-semibold text-red-600"
-                    onClick={() => handleDelete(task)}
-                  >
+                  <button className="p-1 hover:bg-gray-100 font-semibold text-red-600" onClick={() => handleDelete(task)}>
                     Delete Task
                   </button>
-                  
                 </div>
               )}
             </div>
             <button className="p-1 sm:p-2">
               <span className="inline-block w-4 h-4">
-                <img  src="images/Icon-5.png"
-                  className="w-full h-full object-contain"
-                />
+                <img src="images/Icon-5.png" className="w-full h-full object-contain" />
               </span>
             </button>
             <button className="p-1 sm:p-2">
               <span className="inline-block w-4 h-4">
-                <img src="images/Icon-6.png"
-                  className="w-full h-full object-contain"
-                />
+                <img src="images/Icon-6.png" className="w-full h-full object-contain" />
               </span>
             </button>
             <button onClick={taskDeselect} className="p-1 sm:p-2">
               <span className="inline-block w-4 h-4">
-                <img  src="images/Icon-7.png"
-                  className="w-full h-full object-contain"
-                />
+                <img src="images/Icon-7.png" className="w-full h-full object-contain" />
               </span>
             </button>
           </div>
@@ -407,9 +381,7 @@ function TaskDetails({ task, taskDeselect, handleDelete }) {
         <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] xl:grid-cols-[3fr_1.5fr]">
           <div className="p-3 sm:p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
             <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-6">
-              <img src="images/Task Icon.png"
-                className="w-5 h-5 sm:w-auto sm:h-auto"
-              />
+              <img src="images/Task Icon.png" className="w-5 h-5 sm:w-auto sm:h-auto" />
               <div>
                 <h2 className="text-[#475467] font-bold text-base sm:text-xl">
                   {task.description}
@@ -417,9 +389,7 @@ function TaskDetails({ task, taskDeselect, handleDelete }) {
                 <div className="flex gap-1 items-center text-xs sm:text-sm text-[#98A2B3]">
                   <span>ID:</span>
                   <span className="underline">#{task.id}</span>
-                  <img src="images/Copy 2.png"
-                    className="w-3 h-3 sm:w-auto sm:h-auto"
-                  />
+                  <img src="images/Copy 2.png" className="w-3 h-3 sm:w-auto sm:h-auto" />
                 </div>
               </div>
             </div>
@@ -489,15 +459,11 @@ function TaskDetails({ task, taskDeselect, handleDelete }) {
                 Description
               </h3>
               <p className="text-gray-700 text-xs sm:text-sm">
-                Görevin açıklaması: Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Ea aperiam voluptates aut amet asperiores iste
-                debitis et aliquam beatae, voluptate fugiat? Commodi a maxime
-                veritatis omnis quis alias unde dolorum.
+                {task.description || "Görevin açıklaması yok."}
               </p>
             </div>
             <TaskTabs task={task} />
           </div>
-
 
           <div className="flex">
             <Activities task={task} />
@@ -507,59 +473,40 @@ function TaskDetails({ task, taskDeselect, handleDelete }) {
                 <div className="flex flex-col items-center justify-start gap-2 border-b p-2 border-[#EAECF0]">
                   <div className="flex flex-col items-center text-[#F79009]">
                     <button className="bg-[#FFFAEB] p-1.5 sm:p-2 rounded-lg">
-                      <img  src="images/Icon-8.png"
-                        className="w-4 h-4 sm:w-auto sm:h-auto"
-                      />
+                      <img src="images/Icon-8.png" className="w-4 h-4 sm:w-auto sm:h-auto" />
                     </button>
                     <p>Activity</p>
                   </div>
                   <div className="flex flex-col items-center justify-start text-[10px] font-medium text-[#D0D5DD]">
                     <button className="bg-[#EAECF04D] p-1.5 sm:p-2 rounded-lg">
-                      <img  src="images/Icon (2).png"
-     
-                        className="w-4 h-4 sm:w-auto sm:h-auto"
-                      />
+                      <img src="images/Icon (2).png" className="w-4 h-4 sm:w-auto sm:h-auto" />
                     </button>
                     <p>QA</p>
                   </div>
                   <div className="flex flex-col items-center justify-start text-[10px] font-medium text-[#D0D5DD]">
                     <button className="bg-[#EAECF04D] p-1.5 sm:p-2 rounded-lg">
-                      <img   src="images/Icon (2).png"
-                        className="w-4 h-4 sm:w-auto sm:h-auto"
-                      />
+                      <img src="images/Icon (2).png" className="w-4 h-4 sm:w-auto sm:h-auto" />
                     </button>
                     <p>Condition</p>
                   </div>
                   <div className="flex flex-col items-center justify-start text-[10px] font-medium text-[#D0D5DD]">
                     <button className="bg-[#EAECF04D] p-1.5 sm:p-2 rounded-lg">
-                      <img src="images/Icon (2).png"
-                        className="w-4 h-4 sm:w-auto sm:h-auto"
-                      />
+                      <img src="images/Icon (2).png" className="w-4 h-4 sm:w-auto sm:h-auto" />
                     </button>
                     <p>Meetings</p>
                   </div>
                   <div className="flex flex-col items-center justify-start text-[10px] font-medium text-[#D0D5DD]">
                     <button className="bg-[#EAECF04D] p-1.5 sm:p-2 rounded-lg">
-                      <img
-                        src="images/Icon (2).png"
-                        alt=""
-                        className="w-4 h-4 sm:w-auto sm:h-auto"
-                      />
+                      <img src="images/Icon (2).png" alt="" className="w-4 h-4 sm:w-auto sm:h-auto" />
                     </button>
                     <p>Docs</p>
                   </div>
                   <button className="bg-[#FFFAEB] p-1.5 sm:p-2 rounded-lg mb-2">
-                    <img
-                      src="images/Icon-8.png"
-                      className="w-4 h-4 sm:w-auto sm:h-auto"
-                    />
+                    <img src="images/Icon-8.png" className="w-4 h-4 sm:w-auto sm:h-auto" />
                   </button>
                 </div>
                 <button className="flex justify-center items-start p-1.5 sm:p-2 mt-2">
-                  <img
-                    src="images/Icon (3).png"
-                    className="w-4 h-4 sm:w-auto sm:h-auto"
-                  />
+                  <img src="images/Icon (3).png" className="w-4 h-4 sm:w-auto sm:h-auto" />
                 </button>
               </div>
             </div>

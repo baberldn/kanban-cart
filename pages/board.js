@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { useDroppable } from "@dnd-kit/core";
 import Task from "./task";
 
-
 function Board({ project, taskSelect, handleAddTask }) {
   const [adding, setAdding] = useState(false);
   const [newTaskTitle, setNewTaskTitle] = useState("");
 
   const { setNodeRef, isOver } = useDroppable({
-    id: project.id,
+    id: project?.id, // project nesnesinin tanımlı olup olmadığını kontrol et
     data: {
       type: "BOARD",
-      projectId: project.id,
+      projectId: project?.id, // project nesnesinin tanımlı olup olmadığını kontrol et
     },
   });
 
@@ -46,7 +45,6 @@ function Board({ project, taskSelect, handleAddTask }) {
           placeholder="Enter Task title"
           className="w-full p-1.5 sm:p-2 text-[10px] sm:text-xs border border-[#EAECF0] rounded-md"
           autoFocus
-          onTouchStart={(e) => e.stopPropagation()}
           required
         />
         <div className="mt-1.5 sm:mt-2 flex gap-1 sm:gap-2 justify-end">
@@ -70,6 +68,11 @@ function Board({ project, taskSelect, handleAddTask }) {
         </div>
       </form>
     );
+  }
+
+  
+  if (!project || !project.tasks) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -97,12 +100,12 @@ function Board({ project, taskSelect, handleAddTask }) {
         <div className="flex gap-2 sm:gap-4">
           <img
             src="images/Plus 4.png"
-            alt=""
+            alt="Add Task"
             className="w-3 h-3 sm:w-auto sm:h-auto"
           />
           <img
             src="images/More Circle.png"
-            alt=""
+            alt="More Options"
             className="w-3 h-3 sm:w-auto sm:h-auto"
           />
         </div>
@@ -110,7 +113,7 @@ function Board({ project, taskSelect, handleAddTask }) {
       <ul className="p-[2px] flex flex-col gap-1 h-full">
         {project.tasks.length > 0 ? (
           <>
-            {project.tasks?.map((task) => (
+            {project.tasks.map((task) => (
               <Task
                 key={task.id}
                 task={task}
@@ -140,7 +143,7 @@ function Board({ project, taskSelect, handleAddTask }) {
               >
                 <img
                   src="images/Layer 1.png"
-                  alt=""
+                  alt="Add New Task"
                   className="w-20 h-20 sm:w-auto sm:h-auto"
                 />
                 <p className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
@@ -156,5 +159,3 @@ function Board({ project, taskSelect, handleAddTask }) {
 }
 
 export default Board;
-
-
