@@ -1,7 +1,7 @@
 import React, { useRef,useState, forwardRef, useImperativeHandle } from "react";
   
   import { DragOverlay } from "@dnd-kit/core";
-  import mock from "./data";
+  import mock from "../src/app/details";
    import Board from "./board";
   import TaskDetails from "./taskDetails";
  

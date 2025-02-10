@@ -7,7 +7,7 @@ const data = [
         {
           id: "taskmaster-1",
           title: {
-            text: "Operasyon Birim",
+            text: "Operasyon Birimi",
             color: "#F38744",
           },
           description:
@@ -36,6 +36,7 @@ const data = [
           date: "05.02.2024-10.02.2024",
           milestone: "Milestone Name",
           priority: "blue",
+  
           people: [
             {
               name: "p1",
@@ -49,6 +50,7 @@ const data = [
         },
         {
           id: "taskmaster-3",
+  
           title: {
             text: "Test ve Onay Birimi",
             color: "#C80B0B",
@@ -58,6 +60,7 @@ const data = [
           date: "05.02.2024-10.02.2024",
           milestone: "Milestone Name",
           priority: "red",
+  
           people: [
             {
               name: "p5",
@@ -69,6 +72,7 @@ const data = [
     },
     {
       id: "waterboarding-2",
+  
       title: "129f",
       notifications: 3,
       tasks: [],
@@ -76,3 +80,4 @@ const data = [
   ];
   
   export default data;
+  
